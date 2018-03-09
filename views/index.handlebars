@@ -24,7 +24,14 @@
 <h2>LIFEGOALS:  MET</h2>
 
 <ul>
-    {{#each burgers}} {{#if devoured}} <ul>{{burger_name}}<button class="purgeit" data-id="{{this.id}}" data-devoured="{{devoured}}">PURGE.THIS.BURGER.</button>
-</ul>{{/if}} {{/each}}
+    {{#each burgers}} 
+        {{#if devoured}} 
+            <ul>
+                {{burger_name}}
+                <button class="purgeit" data-id="{{this.id}}" data-devoured="{{devoured}}">PURGE.THIS.BURGER.</button>
+                <button class="deleteit" data-id="{{this.id}}">FORGET THIS BURGER.</button>
+            </ul>
+        {{/if}}
+    {{/each}}
 </ul>
 
