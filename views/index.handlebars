@@ -1,16 +1,6 @@
 <h1>BURGERS!</h1>
 
-<h2>UNREALIZED LIFEGOALS</h2>
 
-<ul>
-    {{!-- {{#each cats}} {{#unless sleepy}} {{> cats/cat-block sleep=true}} {{/unless}} {{/each}} --}}
-</ul>
-
-<h2>LIFEGOALS:  MET</h2>
-
-<ul>
-    {{!-- {{#each cats}} {{#if sleepy}} {{> cats/cat-block sleep=false}} {{/if}} {{/each}} --}}
-</ul>
 
 <h2>ADD A BURGER</h2>
 <form class="create-form">
@@ -19,6 +9,21 @@
         <label for="bu">Burger Name:</label>
         <input type="text" id="bu" name="name">
     </div>
-    
-    <button type="submit">Add Cat</button>
+
+    <button type="submit">Add Burger to list</button>
 </form>
+
+<h2>UNREALIZED LIFEGOALS</h2>
+
+<ul>
+    {{#each burgers}} <ul>{{burger_name}}<button class="eatit" data-id="{{id}}">DEVOUR.THIS.BURGER.</button></ul> {{#unless devoured}} {{/unless}} {{/each}}
+</ul>
+
+
+
+<h2>LIFEGOALS:  MET</h2>
+
+<ul>
+    {{#each burgers}} {{#if devoured}} {{/if}} {{/each}}
+</ul>
+
