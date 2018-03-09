@@ -40,4 +40,24 @@ $(function(){
             }
         );
     });
+    $(".purgeit").on("click", function (event) {
+        var id = $(this).data("id");
+        var devoured = $(this).data("devoured");
+
+        var devouredState = {
+            devoured: false
+        };
+
+        // Send the PUT request.
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredState
+        }).then(
+            function () {
+                console.log("ate this burger", devoured);
+                // Reload the page to get the updated list
+                location.reload();
+            }
+        );
+    });
 });
