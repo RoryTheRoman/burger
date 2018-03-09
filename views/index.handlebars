@@ -16,7 +16,7 @@
 <h2>UNREALIZED LIFEGOALS</h2>
 
 <ul>
-    {{#each burgers}} <ul>{{burger_name}}<button class="eatit" data-id="{{id}}">DEVOUR.THIS.BURGER.</button></ul> {{#unless devoured}} {{/unless}} {{/each}}
+    {{#each burgers}} <ul>{{burger_name}}<button class="eatit" data-id="{{this.id}}" data-devoured="{{devoured}}">DEVOUR.THIS.BURGER.</button></ul> {{#unless devoured}} {{/unless}} {{/each}}
 </ul>
 
 
@@ -24,6 +24,6 @@
 <h2>LIFEGOALS:  MET</h2>
 
 <ul>
-    {{#each burgers}} {{#if devoured}} {{/if}} {{/each}}
+    {{#each burgers}} <ul>{{burger_name}}</ul>{{#if devoured}} {{/if}} {{/each}}
 </ul>
 
