@@ -1,0 +1,22 @@
+body {
+	background: url('../img/burgerpic.jpeg');
+	}
+.panel {
+    padding-bottom: 20px;
+    background: rgba(2,3,4,.5);
+}
+
+.top-panel {
+    margin-top: 10px
+}
+h3 {
+    margin-left: 15px;
+}
+.result-panel {
+    padding-bottom: 1000px;
+
+
+}
+/* h1 h2 h3 {
+    ! opacity: 1;
+} */

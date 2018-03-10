@@ -1,37 +1,74 @@
-<h1>BURGERS!</h1>
-
-
-
-<h2>ADD A BURGER</h2>
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="bu">Burger Name:</label>
-        <input type="text" id="bu" name="name">
+<div class="container">
+    <div class="panel panel-default text-center top-panel">
+        <h1>BURGERS!</h1>
     </div>
+</div>
+<div class="container">
+    <div class="panel panel-default text-center">
+        <h2>ADD A BURGER</h2>
+        <div class="panel-body text-center">
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="bu">Burger Name:</label>
+                    <input type="text" id="bu" name="name">
+                    <button type="submit" class="btn btn-warning" id="addbttn">Add Burger to list</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-header result-panel" id="uneaten">
+                <h3>UNREALIZED LIFEGOALS</h3>
+                <ul>
+                    {{#each burgers}} 
+                    {{#unless devoured}}
+                    <ul>
+                        <div class="row">
+                            <div class="col-md-8">
+                                 <h4>{{burger_name}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button class="btn btn-success eatbttn" data-id="{{this.id}}" data-devoured="{{devoured}}">EAT IT</button>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </ul> 
+                    {{/unless}} 
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-header result-panel" id="eaten">
+                <h3>LIFEGOALS: MET</h3>               
+                <ul>
+                    {{#each burgers}} 
+                    {{#if devoured}}
+                    <ul>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>{{burger_name}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button class="btn btn-danger deleteit" data-id="{{this.id}}" data-devoured="{{devoured}}">DEL-EAT IT</button>
+                                <br>
+                            </div>
+                        </div>                    
+                    </ul>
+                    {{/if}} 
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <button type="submit">Add Burger to list</button>
-</form>
-
-<h2>UNREALIZED LIFEGOALS</h2>
-
-<ul>
-    {{#each burgers}} {{#unless devoured}} <ul>{{burger_name}}<button class="eatit" data-id="{{this.id}}" data-devoured="{{devoured}}">DEVOUR.THIS.BURGER.</button></ul> {{/unless}} {{/each}}
-</ul>
-
-
-
-<h2>LIFEGOALS:  MET</h2>
-
-<ul>
-    {{#each burgers}} 
-        {{#if devoured}} 
-            <ul>
-                {{burger_name}}
-                <button class="purgeit" data-id="{{this.id}}" data-devoured="{{devoured}}">PURGE.THIS.BURGER.</button>
-                <button class="deleteit" data-id="{{this.id}}">FORGET THIS BURGER.</button>
-            </ul>
-        {{/if}}
-    {{/each}}
-</ul>
 
